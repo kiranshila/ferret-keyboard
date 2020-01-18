@@ -19,7 +19,7 @@
       (doseq [row rows]
         (do
           (gpio/pin-mode row :input_pullup)
-          (if (gpio/digital-read row) (keyboard\print "Hi"))
+          (if (gpio/digital-read row) (keyboard/print "Hi"))
           (gpio/pin-mode row :input)))
       (gpio/pin-mode col :input)))) ; Disable col
 
