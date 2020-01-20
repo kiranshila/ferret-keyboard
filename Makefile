@@ -1,4 +1,4 @@
-FERRET = java -jar ../ferret.jar
+FERRET = ../ferret
 INPUT  = src/core.clj
 OUTPUT = src/core.ino
 RM = rm -f
@@ -11,11 +11,11 @@ core: $(INPUT)
 	$(FERRET) -i $(INPUT) -o $(OUTPUT)
 
 build: core
-	platformio run
+	platformio run --verbose
 
 upload: core
-	platformio run -t upload
+	platformio run -t upload --verbose
 
 clean:
 	$(RM) $(OUTPUT)
-	platformio run --target clean
+	platformio run --target clean --verbose
