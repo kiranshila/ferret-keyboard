@@ -1,0 +1,40 @@
+#+TITLE:Mechanical Keyboard Firmware
+#+AUTHOR: Kiran Shila
+#+BABEL: :session *clojure* :cache yes :results output graphics :exports both :tangle yes
+
+* Keyboard Library
+I am outsourcing the interactions with the keyboard (HID Table) to a seperate file, because then I get the `keyboard` namespace. Some of the commands from the keyboard library from the teensy have conflicting names with ferret builtins.
+
+I need to include the matrix library here as I am going to store the layout itself as a matrix.
+#+begin_src clojure :tangle deps/keyboard.clj
+(require '[ferret.matrix :as m])
+#+end_src
+
+We wrap the keyboard print with the ferret cpp FFI.
+#+begin_src clojure :tangle deps/keyboard.clj
+(defn print [^c_str s]
+  "__result = obj<number>(Keyboard.print(s));")
+#+end_src
+
+* Layout
+The layout itself is stored in the keyboard dependency file right now. This may change to a more global configuration file.
+#+begin_src clojure :tangle deps/keyboard.clj
+(def layout
+  (matrix
+   [[-1 \q \w \e \r \t \y \u \i \o \p -1]
+    [-1 \a \s \d \f \g \h \j \k \l \; -1]
+    [-1 \z \x \c \v \b \n \m \< \> \/ -1]
+    [-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1]]))
+#+end_src
+
+I am going to need to do something about the layers, but I think they will be defined in a similar way
+
+* Core Logic
+
+We start with the ferret includes for arduino to get the GPIO interaction, the ferret matrix library for working with the layouts, and the keyboard dep file we created before.
+
+#+begin_src clojure
+(require '[ferret.arduino :as gpio]
+         '[deps.keyboard :as keyboard]
+         '[ferret.matrix :as m])
+#+end_src

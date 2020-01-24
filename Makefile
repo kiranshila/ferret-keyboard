@@ -11,11 +11,11 @@ core: $(INPUT)
 	$(FERRET) -i $(INPUT) -o $(OUTPUT)
 
 build: core
-	platformio run --verbose
+	platformio run
 
 upload: core
-	platformio run -t upload --verbose
+	platformio run -t upload
 
 clean:
 	$(RM) $(OUTPUT)
-	platformio run --target clean --verbose
+	platformio run --target clean
