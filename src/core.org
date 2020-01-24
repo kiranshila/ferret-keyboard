@@ -32,9 +32,88 @@ I am going to need to do something about the layers, but I think they will be de
 * Core Logic
 
 We start with the ferret includes for arduino to get the GPIO interaction, the ferret matrix library for working with the layouts, and the keyboard dep file we created before.
-
-#+begin_src clojure
+#+begin_src clojure :tangle core.clj
 (require '[ferret.arduino :as gpio]
          '[deps.keyboard :as keyboard]
          '[ferret.matrix :as m])
+#+end_src
+
+I put the defenitions of the rows and column pins here, but they might need to be moved to some global configuration file
+#+begin_src clojure :tangle core.clj
+(def cols (list 10 11 12 15 16 17 18 19 20 21 22 23)) ;outputs
+(def rows (list 6 7 8 9)) ;inputs
+#+end_src
+
+** Utility Functions
+*** m-and
+This function takes two matricies and returns the logical "and" of the two. The first argument is the matrix to be masked and the second is the masking matrix. For some reason bools didn't work, so the checks for the mask are done with pos?.
+#+begin_src clojure :tangle core.clj
+(defn m-and [m-target m-bool]
+  (let [result (m/zeros (m/row-count m-bool) (m/column-count m-bool))]
+    (doseq [row (range (m/row-count m-bool))]
+      (doseq [col (range (m/column-count m-bool))]
+        (if (pos? (m/mget m-bool row col)) (m/mset! result row col (m/mget m-target row col)))))
+    result))
+#+end_src
+
+*** Enumerate
+This takes a list and returns a list of lists with each item being the position in the source list and the value in the source at that position.
+#+begin_src clojure :tangle core.clj
+(defn enumerate [in]
+  (map list (range (count in)) in))
+#+end_src
+
+*** arduino-write-byte
+As there wasn't a nice way to write a raw byte over serial.
+#+begin_src clojure :tangle core.clj
+(defn arduino-write-byte [^byte b]
+  "__result = obj<number>(Serial.print((char)b));")
+#+end_src
+
+*** read-matrix
+This function reads the entire keyboard matrix and returns a "mask" matrix of 1s and 0s for every position pressed within the last scan
+#+begin_src clojure :tangle core.clj
+(defn read-matrix [rows cols]
+  (let [activations (m/zeros (count rows) (count cols))]
+    (doseq [[j col] (enumerate cols)]
+      (do
+        (gpio/digital-write col 1)
+        (doseq [[i row] (enumerate rows)]
+          (if (pos? (gpio/digital-read row)) (m/mset! activations i j 1)))
+        (gpio/digital-write col 0)))
+    activations))
+#+end_src
+
+*** apply-layout
+This function takes a layout matrix and the activation matrix (i.e. the result from a scan) and does something with the result. Right now, it prints the keypress to the console.
+#+begin_src clojure :tangle core.clj
+(defn apply-layout [layout activations]
+  (let [result (m-and layout activations)]
+    (doseq [i (range (m/row-count result))]
+      (doseq [j (range (m/column-count result))]
+        (let [keypress (m/mget result i j)]
+          (if (pos? keypress) (arduino-write-byte keypress)))))))
+#+end_src
+
+** Setup
+So to begin program execution, we have to set all the columns to outputs and set the rows to inputs with pull-downs. Additionally, I set all the outputs to 0 just to make sure we start from a blank state.
+#+begin_src clojure :tangle core.clj
+(defn setup [rows cols]
+  (do
+    (doseq [col cols]
+      (do
+        (gpio/pin-mode col :output)
+        (gpio/digital-write col 0)))
+    (doseq [row rows]
+      (gpio/pin-mode row :input_pulldown))))
+#+end_src
+
+* State Machine
+Simple process right now, we run the setup, and then constantly read the matrix and do the appropriate layout task from apply-layout
+#+begin_src clojure :tangle core.clj
+ (do
+   (setup rows cols)
+   (forever
+    (->> (read-matrix rows cols)
+         (apply-layout keyboard/layout))))
 #+end_src

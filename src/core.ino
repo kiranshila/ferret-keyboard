@@ -2587,13 +2587,11 @@
            typedef ferret::boolean boolean;
          #endif
 
-         var G__20153;
+         var G__19054;
          var deps_keyboard_layout;
-         var G__20140;
-         var G__20142;
          var rows;
          var cols;
-         var G__20154;
+         var G__19056;
         }
 
 
@@ -2718,13 +2716,13 @@
 
         // Lambda Prototypes
         namespace core{
-                 class new_lazy_seq__20498  {
+                 class new_lazy_seq__19385  {
                 public:
 
                   var invoke (ref _args_) const  ;
                 };
 
-                 class new_lazy_seq__20499  {
+                 class new_lazy_seq__19386  {
                 public:
 
                   var invoke (ref _args_) const  ;
@@ -2772,19 +2770,13 @@
                   var invoke (ref _args_) const  ;
                 };
 
-                 class _not_  {
-                public:
-
-                  var invoke (ref _args_) const  ;
-                };
-
-                 class _eq_  {
-                public:
-
-                  var invoke (ref _args_) const  ;
-                };
-
                  class _gt_  {
+                public:
+
+                  var invoke (ref _args_) const  ;
+                };
+
+                 class _while_  {
                 public:
 
                   var invoke (ref _args_) const  ;
@@ -2808,33 +2800,33 @@
                   var invoke (ref _args_) const  ;
                 };
 
-                 class FN__20446 final : public lambda_i{
-                  const var coll__20128;
-                  const var f__20127;
+                 class FN__19341 final : public lambda_i{
+                  const var f__19031;
+                  const var coll__19032;
                 public:
-                    explicit FN__20446 (ref coll__20128,ref f__20127) :
-                      coll__20128(coll__20128),f__20127(f__20127) { }
+                    explicit FN__19341 (ref f__19031,ref coll__19032) :
+                      f__19031(f__19031),coll__19032(coll__19032) { }
 
                   var invoke (ref _args_) const  final  ;
                 };
 
-                 class map__20501  {
+                 class map__19388  {
                 public:
 
                   var invoke (ref _args_) const  ;
                 };
 
-                 class FN__20448 final : public lambda_i{
-                  const var cols__20130;
-                  const var f__20129;
+                 class FN__19343 final : public lambda_i{
+                  const var cols__19034;
+                  const var f__19033;
                 public:
-                    explicit FN__20448 (ref cols__20130,ref f__20129) :
-                      cols__20130(cols__20130),f__20129(f__20129) { }
+                    explicit FN__19343 (ref cols__19034,ref f__19033) :
+                      cols__19034(cols__19034),f__19033(f__19033) { }
 
                   var invoke (ref _args_) const  final  ;
                 };
 
-                 class map__20500  {
+                 class map__19387  {
                 public:
 
                   var invoke (ref _args_) const  ;
@@ -2846,13 +2838,13 @@
                   var invoke (ref _args_) const  final  ;
                 };
 
-                 class range__20502  {
+                 class range__19389  {
                 public:
 
                   var invoke (ref _args_) const  ;
                 };
 
-                 class range__20503  {
+                 class range__19390  {
                 public:
 
                   var invoke (ref _args_) const  ;
@@ -2865,12 +2857,6 @@
                 };
 
                  class every_QMARK_  {
-                public:
-
-                  var invoke (ref _args_) const  ;
-                };
-
-                 class new_fsm  {
                 public:
 
                   var invoke (ref _args_) const  ;
@@ -2918,35 +2904,35 @@
                   var invoke (ref _args_) const  ;
                 };
 
-                 class FN__20463 final : public lambda_i{
-                  const var m_target__20132;
-                  const var row__20134;
-                  const var m_bool__20133;
-                  const var result__20427;
+                 class FN__19357 final : public lambda_i{
+                  const var result__19323;
+                  const var m_target__19036;
+                  const var row__19038;
+                  const var m_bool__19037;
                 public:
-                    explicit FN__20463 (ref m_target__20132,ref row__20134,ref m_bool__20133,ref result__20427) :
-                      m_target__20132(m_target__20132),row__20134(row__20134),m_bool__20133(m_bool__20133),result__20427(result__20427) { }
+                    explicit FN__19357 (ref result__19323,ref m_target__19036,ref row__19038,ref m_bool__19037) :
+                      result__19323(result__19323),m_target__19036(m_target__19036),row__19038(row__19038),m_bool__19037(m_bool__19037) { }
 
                   var invoke (ref _args_) const  final  ;
                 };
 
-                 class FN__20464 final : public lambda_i{
-                  const var m_target__20132;
-                  const var m_bool__20133;
-                  const var result__20427;
+                 class FN__19358 final : public lambda_i{
+                  const var result__19323;
+                  const var m_target__19036;
+                  const var m_bool__19037;
                 public:
-                    explicit FN__20464 (ref m_target__20132,ref m_bool__20133,ref result__20427) :
-                      m_target__20132(m_target__20132),m_bool__20133(m_bool__20133),result__20427(result__20427) { }
+                    explicit FN__19358 (ref result__19323,ref m_target__19036,ref m_bool__19037) :
+                      result__19323(result__19323),m_target__19036(m_target__19036),m_bool__19037(m_bool__19037) { }
 
                   var invoke (ref _args_) const  final  ;
                 };
 
-                 class FN__20465  {
-                  const var m_target__20132;
-                  const var m_bool__20133;
+                 class FN__19359  {
+                  const var m_target__19036;
+                  const var m_bool__19037;
                 public:
-                    explicit FN__20465 (ref m_target__20132,ref m_bool__20133) :
-                      m_target__20132(m_target__20132),m_bool__20133(m_bool__20133) { }
+                    explicit FN__19359 (ref m_target__19036,ref m_bool__19037) :
+                      m_target__19036(m_target__19036),m_bool__19037(m_bool__19037) { }
 
                   var invoke (ref _args_) const  ;
                 };
@@ -2969,213 +2955,171 @@
                   var invoke (ref _args_) const  ;
                 };
 
-                 class FN__20469  {
+                 class FN__19363 final : public lambda_i{
+                  const var j__19043;
+                  const var activations__19324;
+                public:
+                    explicit FN__19363 (ref j__19043,ref activations__19324) :
+                      j__19043(j__19043),activations__19324(activations__19324) { }
+
+                  var invoke (ref _args_) const  final  ;
+                };
+
+                 class FN__19364  {
+                  const var col__19044;
+                  const var j__19043;
+                  const var rows__19041;
+                  const var activations__19324;
+                public:
+                    explicit FN__19364 (ref col__19044,ref j__19043,ref rows__19041,ref activations__19324) :
+                      col__19044(col__19044),j__19043(j__19043),rows__19041(rows__19041),activations__19324(activations__19324) { }
+
+                  var invoke (ref _args_) const  ;
+                };
+
+                 class FN__19365 final : public lambda_i{
+                  const var rows__19041;
+                  const var activations__19324;
+                public:
+                    explicit FN__19365 (ref rows__19041,ref activations__19324) :
+                      rows__19041(rows__19041),activations__19324(activations__19324) { }
+
+                  var invoke (ref _args_) const  final  ;
+                };
+
+                 class FN__19366  {
+                  const var cols__19042;
+                  const var rows__19041;
+                public:
+                    explicit FN__19366 (ref cols__19042,ref rows__19041) :
+                      cols__19042(cols__19042),rows__19041(rows__19041) { }
+
+                  var invoke (ref _args_) const  ;
+                };
+
+                 class read_matrix  {
                 public:
 
                   var invoke (ref _args_) const  ;
                 };
 
-                 class FN__20470  {
-                  const var col__20139;
+                 class FN__19368  {
                 public:
-                    explicit FN__20470 (ref col__20139) :
-                      col__20139(col__20139) { }
 
                   var invoke (ref _args_) const  ;
                 };
 
-                 class FN__20471  {
-                  const var col__20139;
+                 class FN__19369 final : public lambda_i{
+                  const var i__19049;
+                  const var result__19325;
                 public:
-                    explicit FN__20471 (ref col__20139) :
-                      col__20139(col__20139) { }
+                    explicit FN__19369 (ref i__19049,ref result__19325) :
+                      i__19049(i__19049),result__19325(result__19325) { }
+
+                  var invoke (ref _args_) const  final  ;
+                };
+
+                 class FN__19370 final : public lambda_i{
+                  const var result__19325;
+                public:
+                    explicit FN__19370 (ref result__19325) :
+                      result__19325(result__19325) { }
+
+                  var invoke (ref _args_) const  final  ;
+                };
+
+                 class FN__19371  {
+                public:
 
                   var invoke (ref _args_) const  ;
                 };
 
-                 class FN__20472 final : public lambda_i{
+                 class apply_layout  {
+                public:
+
+                  var invoke (ref _args_) const  ;
+                };
+
+                 class FN__19373  {
+                public:
+
+                  var invoke (ref _args_) const  ;
+                };
+
+                 class FN__19374  {
+                  const var col__19053;
+                public:
+                    explicit FN__19374 (ref col__19053) :
+                      col__19053(col__19053) { }
+
+                  var invoke (ref _args_) const  ;
+                };
+
+                 class FN__19375  {
+                  const var col__19053;
+                public:
+                    explicit FN__19375 (ref col__19053) :
+                      col__19053(col__19053) { }
+
+                  var invoke (ref _args_) const  ;
+                };
+
+                 class FN__19376 final : public lambda_i{
                 public:
 
                   var invoke (ref _args_) const  final  ;
                 };
 
-                 class FN__20473  {
+                 class FN__19377  {
                 public:
 
                   var invoke (ref _args_) const  ;
                 };
 
-                 class FN__20474  {
-                  const var row__20141;
+                 class FN__19378  {
+                  const var row__19055;
                 public:
-                    explicit FN__20474 (ref row__20141) :
-                      row__20141(row__20141) { }
+                    explicit FN__19378 (ref row__19055) :
+                      row__19055(row__19055) { }
 
                   var invoke (ref _args_) const  ;
                 };
 
-                 class FN__20475 final : public lambda_i{
+                 class FN__19379 final : public lambda_i{
                 public:
 
                   var invoke (ref _args_) const  final  ;
                 };
 
-                 class FN__20476  {
-                  const var cols__20138;
-                  const var rows__20137;
+                 class FN__19380  {
+                  const var rows__19051;
+                  const var cols__19052;
                 public:
-                    explicit FN__20476 (ref cols__20138,ref rows__20137) :
-                      cols__20138(cols__20138),rows__20137(rows__20137) { }
+                    explicit FN__19380 (ref rows__19051,ref cols__19052) :
+                      rows__19051(rows__19051),cols__19052(cols__19052) { }
 
                   var invoke (ref _args_) const  ;
                 };
 
-                 class setup final : public lambda_i{
+                 class setup  {
+                public:
+
+                  var invoke (ref _args_) const  ;
+                };
+
+                 class FN__19382 final : public lambda_i{
                 public:
 
                   var invoke (ref _args_) const  final  ;
                 };
 
-                 class FN__20478 final : public lambda_i{
-                  const var activations__20428;
-                  const var j__20145;
-                public:
-                    explicit FN__20478 (ref activations__20428,ref j__20145) :
-                      activations__20428(activations__20428),j__20145(j__20145) { }
-
-                  var invoke (ref _args_) const  final  ;
-                };
-
-                 class FN__20479  {
-                  const var activations__20428;
-                  const var rows__20143;
-                  const var col__20146;
-                  const var j__20145;
-                public:
-                    explicit FN__20479 (ref activations__20428,ref rows__20143,ref col__20146,ref j__20145) :
-                      activations__20428(activations__20428),rows__20143(rows__20143),col__20146(col__20146),j__20145(j__20145) { }
-
-                  var invoke (ref _args_) const  ;
-                };
-
-                 class FN__20480 final : public lambda_i{
-                  const var activations__20428;
-                  const var rows__20143;
-                public:
-                    explicit FN__20480 (ref activations__20428,ref rows__20143) :
-                      activations__20428(activations__20428),rows__20143(rows__20143) { }
-
-                  var invoke (ref _args_) const  final  ;
-                };
-
-                 class FN__20481  {
-                  const var rows__20143;
-                  const var cols__20144;
-                public:
-                    explicit FN__20481 (ref rows__20143,ref cols__20144) :
-                      rows__20143(rows__20143),cols__20144(cols__20144) { }
-
-                  var invoke (ref _args_) const  ;
-                };
-
-                 class read_matrix final : public lambda_i{
+                 class FN__19383 final : public lambda_i{
                 public:
 
                   var invoke (ref _args_) const  final  ;
                 };
 
-                 class FN__20483  {
-                public:
-
-                  var invoke (ref _args_) const  ;
-                };
-
-                 class FN__20484 final : public lambda_i{
-                  const var result__20429;
-                  const var i__20151;
-                public:
-                    explicit FN__20484 (ref result__20429,ref i__20151) :
-                      result__20429(result__20429),i__20151(i__20151) { }
-
-                  var invoke (ref _args_) const  final  ;
-                };
-
-                 class FN__20485 final : public lambda_i{
-                  const var result__20429;
-                public:
-                    explicit FN__20485 (ref result__20429) :
-                      result__20429(result__20429) { }
-
-                  var invoke (ref _args_) const  final  ;
-                };
-
-                 class FN__20486  {
-                public:
-
-                  var invoke (ref _args_) const  ;
-                };
-
-                 class apply_layout final : public lambda_i{
-                public:
-
-                  var invoke (ref _args_) const  final  ;
-                };
-
-                 class led_on final : public lambda_i{
-                public:
-
-                  var invoke (ref _args_) const  final  ;
-                };
-
-                 class led_off final : public lambda_i{
-                public:
-
-                  var invoke (ref _args_) const  final  ;
-                };
-
-                 class FN__20490  {
-                public:
-
-                  var invoke (ref _args_) const  ;
-                };
-
-                 class FN__20491  {
-                public:
-
-                  var invoke (ref _args_) const  ;
-                };
-
-                 class FN__20492  {
-                public:
-
-                  var invoke (ref _args_) const  ;
-                };
-
-                 class FN__20493  {
-                public:
-
-                  var invoke (ref _args_) const  ;
-                };
-
-                 class FN__20494  {
-                public:
-
-                  var invoke (ref _args_) const  ;
-                };
-
-                 class FN__20495  {
-                public:
-
-                  var invoke (ref _args_) const  ;
-                };
-
-                 class FN__20496 final : public lambda_i{
-                public:
-
-                  var invoke (ref _args_) const  final  ;
-                };
-
-                 class FN__20497  {
+                 class FN__19384  {
                 public:
 
                   var invoke (ref _args_) const  ;
@@ -3191,7 +3135,7 @@
 
         // Lambda Implementations
         namespace core{
-                inline var new_lazy_seq__20498::invoke (ref _args_) const {
+                inline var new_lazy_seq__19385::invoke (ref _args_) const {
                   (void)(_args_);
                   ref thunk = rt::first(_args_);
 
@@ -3199,7 +3143,7 @@
                 }
                
 
-                inline var new_lazy_seq__20499::invoke (ref _args_) const {
+                inline var new_lazy_seq__19386::invoke (ref _args_) const {
                   (void)(_args_);
                   ref data = rt::first(_args_);
                   ref thunk = rt::first(rt::rest(_args_));
@@ -3213,9 +3157,9 @@
 
                   switch(rt::count(_args_)) {
                                                         case 1 :
-                                                           return new_lazy_seq__20498().invoke(_args_); 
+                                                           return new_lazy_seq__19385().invoke(_args_); 
                                                         case 2 :
-                                                           return new_lazy_seq__20499().invoke(_args_); 
+                                                           return new_lazy_seq__19386().invoke(_args_); 
                                     };
                   return nil();
                 }
@@ -3273,30 +3217,6 @@
                 }
                
 
-                inline var _not_::invoke (ref _args_) const {
-                  (void)(_args_);
-                  ref x = rt::first(_args_);
-
-                  if (x)
-                       return cached::false_o;
-                     return cached::true_o;;
-                }
-               
-
-                inline var _eq_::invoke (ref _args_) const {
-                  (void)(_args_);
-                  ref args = _args_;
-
-                  var curr = rt::first(args);
-                     for_each(it, rt::rest(args)){
-                      if (curr != it)
-                        return cached::false_o;
-                      curr = it;
-                     }
-                     return cached::true_o;;
-                }
-               
-
                 inline var _gt_::invoke (ref _args_) const {
                   (void)(_args_);
                   ref args = _args_;
@@ -3313,6 +3233,17 @@
                 }
                
 
+                inline var _while_::invoke (ref _args_) const {
+                  (void)(_args_);
+                  ref pred = rt::first(_args_);
+                  ref fn = rt::first(rt::rest(_args_));
+
+                  while(run(pred))
+                       run(fn);;
+                  return nil();
+                }
+               
+
                 inline var count::invoke (ref _args_) const {
                   (void)(_args_);
                   ref s = rt::first(_args_);
@@ -3323,9 +3254,9 @@
 
                 inline var pos_QMARK_::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref x__20126 = rt::first(_args_);
+                  ref x__19030 = rt::first(_args_);
 
-                  return run(_gt_(),x__20126,obj<number>(0.0));
+                  return run(_gt_(),x__19030,obj<number>(0.0));
                 }
                
 
@@ -3339,35 +3270,35 @@
                 }
                
 
-                inline var FN__20446::invoke (ref _args_) const {
+                inline var FN__19341::invoke (ref _args_) const {
                   (void)(_args_);
 
-                  return (run(seqable_QMARK_(),coll__20128) ? run(cons(),run(f__20127,rt::first(coll__20128)),run(map__20501(),f__20127,rt::rest(coll__20128))) : nil());
+                  return (run(seqable_QMARK_(),coll__19032) ? run(cons(),run(f__19031,rt::first(coll__19032)),run(map__19388(),f__19031,rt::rest(coll__19032))) : nil());
                 }
                
 
-                inline var map__20501::invoke (ref _args_) const {
+                inline var map__19388::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref f__20127 = rt::first(_args_);
-                  ref coll__20128 = rt::first(rt::rest(_args_));
+                  ref f__19031 = rt::first(_args_);
+                  ref coll__19032 = rt::first(rt::rest(_args_));
 
-                  return run(new_lazy_seq__20498(),obj<FN__20446>(coll__20128,f__20127));
+                  return run(new_lazy_seq__19385(),obj<FN__19341>(f__19031,coll__19032));
                 }
                
 
-                inline var FN__20448::invoke (ref _args_) const {
+                inline var FN__19343::invoke (ref _args_) const {
                   (void)(_args_);
 
-                  return (run(every_QMARK_(),obj<seqable_QMARK_>(),cols__20130) ? run(cons(),run(apply(),f__20129,run(map__20501(),obj<first>(),cols__20130)),run(apply(),obj<map>(),f__20129,run(map__20501(),obj<rest>(),cols__20130))) : nil());
+                  return (run(every_QMARK_(),obj<seqable_QMARK_>(),cols__19034) ? run(cons(),run(apply(),f__19033,run(map__19388(),obj<first>(),cols__19034)),run(apply(),obj<map>(),f__19033,run(map__19388(),obj<rest>(),cols__19034))) : nil());
                 }
                
 
-                inline var map__20500::invoke (ref _args_) const {
+                inline var map__19387::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref f__20129 = rt::first(_args_);
-                  ref cols__20130 = rt::rest(_args_);
+                  ref f__19033 = rt::first(_args_);
+                  ref cols__19034 = rt::rest(_args_);
 
-                  return run(new_lazy_seq__20498(),obj<FN__20448>(cols__20130,f__20129));
+                  return run(new_lazy_seq__19385(),obj<FN__19343>(cols__19034,f__19033));
                 }
                
 
@@ -3376,21 +3307,21 @@
 
                   switch(rt::count(_args_)) {
                                                         case 2 :
-                                                           return map__20501().invoke(_args_); 
+                                                           return map__19388().invoke(_args_); 
                                     };
-                  return map__20500().invoke(_args_);
+                  return map__19387().invoke(_args_);
                 }
                
 
-                inline var range__20502::invoke (ref _args_) const {
+                inline var range__19389::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref high__20131 = rt::first(_args_);
+                  ref high__19035 = rt::first(_args_);
 
-                  return run(range__20503(),obj<number>(0.0),high__20131);
+                  return run(range__19390(),obj<number>(0.0),high__19035);
                 }
                
 
-                inline var range__20503::invoke (ref _args_) const {
+                inline var range__19390::invoke (ref _args_) const {
                   (void)(_args_);
                   number_t low = number::to<number_t>(rt::first(_args_));
                   number_t high = number::to<number_t>(rt::first(rt::rest(_args_)));
@@ -3404,9 +3335,9 @@
 
                   switch(rt::count(_args_)) {
                                                         case 1 :
-                                                           return range__20502().invoke(_args_); 
+                                                           return range__19389().invoke(_args_); 
                                                         case 2 :
-                                                           return range__20503().invoke(_args_); 
+                                                           return range__19390().invoke(_args_); 
                                     };
                   return nil();
                 }
@@ -3422,15 +3353,6 @@
                         return cached::false_o;
                      }
                      return cached::true_o;;
-                }
-               
-
-                inline var new_fsm::invoke (ref _args_) const {
-                  (void)(_args_);
-                  ref state = rt::first(_args_);
-                  ref transitions = rt::first(rt::rest(_args_));
-
-                  return obj<fsm>(state, transitions);
                 }
                
 
@@ -3517,45 +3439,45 @@
                 }
                
 
-                inline var FN__20463::invoke (ref _args_) const {
+                inline var FN__19357::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref col__20135 = rt::first(_args_);
+                  ref col__19039 = rt::first(_args_);
 
-                  return (run(pos_QMARK_(),run(ferret_matrix_mget(),m_bool__20133,row__20134,col__20135)) ? run(ferret_matrix_mset_BANG_(),result__20427,row__20134,col__20135,run(ferret_matrix_mget(),m_target__20132,row__20134,col__20135)) : nil());
+                  return (run(pos_QMARK_(),run(ferret_matrix_mget(),m_bool__19037,row__19038,col__19039)) ? run(ferret_matrix_mset_BANG_(),result__19323,row__19038,col__19039,run(ferret_matrix_mget(),m_target__19036,row__19038,col__19039)) : nil());
                 }
                
 
-                inline var FN__20464::invoke (ref _args_) const {
+                inline var FN__19358::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref row__20134 = rt::first(_args_);
+                  ref row__19038 = rt::first(_args_);
 
-                  return run(_doseq_(),run(range__20502(),run(ferret_matrix_column_count(),m_bool__20133)),obj<FN__20463>(m_target__20132,row__20134,m_bool__20133,result__20427));
+                  return run(_doseq_(),run(range__19389(),run(ferret_matrix_column_count(),m_bool__19037)),obj<FN__19357>(result__19323,m_target__19036,row__19038,m_bool__19037));
                 }
                
 
-                inline var FN__20465::invoke (ref _args_) const {
+                inline var FN__19359::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref result__20427 = rt::first(_args_);
+                  ref result__19323 = rt::first(_args_);
 
-                  run(_doseq_(),run(range__20502(),run(ferret_matrix_row_count(),m_bool__20133)),obj<FN__20464>(m_target__20132,m_bool__20133,result__20427));
-                  return result__20427;
+                  run(_doseq_(),run(range__19389(),run(ferret_matrix_row_count(),m_bool__19037)),obj<FN__19358>(result__19323,m_target__19036,m_bool__19037));
+                  return result__19323;
                 }
                
 
                 inline var m_and::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref m_target__20132 = rt::first(_args_);
-                  ref m_bool__20133 = rt::first(rt::rest(_args_));
+                  ref m_target__19036 = rt::first(_args_);
+                  ref m_bool__19037 = rt::first(rt::rest(_args_));
 
-                  return run(FN__20465(m_target__20132,m_bool__20133),run(ferret_matrix_zeros(),run(ferret_matrix_row_count(),m_bool__20133),run(ferret_matrix_column_count(),m_bool__20133)));
+                  return run(FN__19359(m_target__19036,m_bool__19037),run(ferret_matrix_zeros(),run(ferret_matrix_row_count(),m_bool__19037),run(ferret_matrix_column_count(),m_bool__19037)));
                 }
                
 
                 inline var enumerate::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref in__20136 = rt::first(_args_);
+                  ref in__19040 = rt::first(_args_);
 
-                  return run(map__20500(),obj<list>(),run(range__20502(),run(count(),in__20136)),in__20136);
+                  return run(map__19387(),obj<list>(),run(range__19389(),run(count(),in__19040)),in__19040);
                 }
                
 
@@ -3569,241 +3491,184 @@
                 }
                
 
-                inline var FN__20469::invoke (ref _args_) const {
+                inline var FN__19363::invoke (ref _args_) const {
                   (void)(_args_);
+                  ref i__19045 = rt::first(rt::first(_args_));
+                  ref row__19046 = rt::first(rt::rest(rt::first(_args_)));
 
-                  ::pinMode(number::to<int>(G__20140) , OUTPUT);;
-                  return nil();
+                  return (run(pos_QMARK_(),run(ferret_arduino_digital_read(),row__19046)) ? run(ferret_matrix_mset_BANG_(),activations__19324,i__19045,j__19043,obj<number>(1.0)) : nil());
                 }
                
 
-                inline var FN__20470::invoke (ref _args_) const {
+                inline var FN__19364::invoke (ref _args_) const {
                   (void)(_args_);
 
-                  (G__20140 = col__20139);
-                  return run(FN__20469());
+                  run(ferret_arduino_digital_write(),col__19044,obj<number>(1.0));
+                  run(_doseq_(),run(enumerate(),rows__19041),obj<FN__19363>(j__19043,activations__19324));
+                  return run(ferret_arduino_digital_write(),col__19044,obj<number>(0.0));
                 }
                
 
-                inline var FN__20471::invoke (ref _args_) const {
+                inline var FN__19365::invoke (ref _args_) const {
                   (void)(_args_);
+                  ref j__19043 = rt::first(rt::first(_args_));
+                  ref col__19044 = rt::first(rt::rest(rt::first(_args_)));
 
-                  run(FN__20470(col__20139));
-                  return run(ferret_arduino_digital_write(),col__20139,obj<number>(0.0));
+                  return run(FN__19364(col__19044,j__19043,rows__19041,activations__19324));
                 }
                
 
-                inline var FN__20472::invoke (ref _args_) const {
+                inline var FN__19366::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref col__20139 = rt::first(_args_);
+                  ref activations__19324 = rt::first(_args_);
 
-                  return run(FN__20471(col__20139));
-                }
-               
-
-                inline var FN__20473::invoke (ref _args_) const {
-                  (void)(_args_);
-
-                  ::pinMode(number::to<int>(G__20142) , INPUT_PULLDOWN);;
-                  return nil();
-                }
-               
-
-                inline var FN__20474::invoke (ref _args_) const {
-                  (void)(_args_);
-
-                  (G__20142 = row__20141);
-                  return run(FN__20473());
-                }
-               
-
-                inline var FN__20475::invoke (ref _args_) const {
-                  (void)(_args_);
-                  ref row__20141 = rt::first(_args_);
-
-                  return run(FN__20474(row__20141));
-                }
-               
-
-                inline var FN__20476::invoke (ref _args_) const {
-                  (void)(_args_);
-
-                  run(_doseq_(),cols__20138,obj<FN__20472>());
-                  return run(_doseq_(),rows__20137,obj<FN__20475>());
-                }
-               
-
-                inline var setup::invoke (ref _args_) const {
-                  (void)(_args_);
-                  ref rows__20137 = rt::first(_args_);
-                  ref cols__20138 = rt::first(rt::rest(_args_));
-
-                  return run(FN__20476(cols__20138,rows__20137));
-                }
-               
-
-                inline var FN__20478::invoke (ref _args_) const {
-                  (void)(_args_);
-                  ref i__20147 = rt::first(rt::first(_args_));
-                  ref row__20148 = rt::first(rt::rest(rt::first(_args_)));
-
-                  return (run(pos_QMARK_(),run(ferret_arduino_digital_read(),row__20148)) ? run(ferret_matrix_mset_BANG_(),activations__20428,i__20147,j__20145,obj<number>(1.0)) : nil());
-                }
-               
-
-                inline var FN__20479::invoke (ref _args_) const {
-                  (void)(_args_);
-
-                  run(ferret_arduino_digital_write(),col__20146,obj<number>(1.0));
-                  run(_doseq_(),run(enumerate(),rows__20143),obj<FN__20478>(activations__20428,j__20145));
-                  return run(ferret_arduino_digital_write(),col__20146,obj<number>(0.0));
-                }
-               
-
-                inline var FN__20480::invoke (ref _args_) const {
-                  (void)(_args_);
-                  ref j__20145 = rt::first(rt::first(_args_));
-                  ref col__20146 = rt::first(rt::rest(rt::first(_args_)));
-
-                  return run(FN__20479(activations__20428,rows__20143,col__20146,j__20145));
-                }
-               
-
-                inline var FN__20481::invoke (ref _args_) const {
-                  (void)(_args_);
-                  ref activations__20428 = rt::first(_args_);
-
-                  run(_doseq_(),run(enumerate(),cols__20144),obj<FN__20480>(activations__20428,rows__20143));
-                  return activations__20428;
+                  run(_doseq_(),run(enumerate(),cols__19042),obj<FN__19365>(rows__19041,activations__19324));
+                  return activations__19324;
                 }
                
 
                 inline var read_matrix::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref rows__20143 = rt::first(_args_);
-                  ref cols__20144 = rt::first(rt::rest(_args_));
+                  ref rows__19041 = rt::first(_args_);
+                  ref cols__19042 = rt::first(rt::rest(_args_));
 
-                  return run(FN__20481(rows__20143,cols__20144),run(ferret_matrix_zeros(),run(count(),rows__20143),run(count(),cols__20144)));
+                  return run(FN__19366(cols__19042,rows__19041),run(ferret_matrix_zeros(),run(count(),rows__19041),run(count(),cols__19042)));
                 }
                
 
-                inline var FN__20483::invoke (ref _args_) const {
+                inline var FN__19368::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref keypress__20430 = rt::first(_args_);
+                  ref keypress__19326 = rt::first(_args_);
 
-                  return (run(pos_QMARK_(),keypress__20430) ? run(arduino_write_byte(),keypress__20430) : nil());
+                  return (run(pos_QMARK_(),keypress__19326) ? run(arduino_write_byte(),keypress__19326) : nil());
                 }
                
 
-                inline var FN__20484::invoke (ref _args_) const {
+                inline var FN__19369::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref j__20152 = rt::first(_args_);
+                  ref j__19050 = rt::first(_args_);
 
-                  return run(FN__20483(),run(ferret_matrix_mget(),result__20429,i__20151,j__20152));
+                  return run(FN__19368(),run(ferret_matrix_mget(),result__19325,i__19049,j__19050));
                 }
                
 
-                inline var FN__20485::invoke (ref _args_) const {
+                inline var FN__19370::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref i__20151 = rt::first(_args_);
+                  ref i__19049 = rt::first(_args_);
 
-                  return run(_doseq_(),run(range__20502(),run(ferret_matrix_column_count(),result__20429)),obj<FN__20484>(result__20429,i__20151));
+                  return run(_doseq_(),run(range__19389(),run(ferret_matrix_column_count(),result__19325)),obj<FN__19369>(i__19049,result__19325));
                 }
                
 
-                inline var FN__20486::invoke (ref _args_) const {
+                inline var FN__19371::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref result__20429 = rt::first(_args_);
+                  ref result__19325 = rt::first(_args_);
 
-                  return run(_doseq_(),run(range__20502(),run(ferret_matrix_row_count(),result__20429)),obj<FN__20485>(result__20429));
+                  return run(_doseq_(),run(range__19389(),run(ferret_matrix_row_count(),result__19325)),obj<FN__19370>(result__19325));
                 }
                
 
                 inline var apply_layout::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref layout__20149 = rt::first(_args_);
-                  ref activations__20150 = rt::first(rt::rest(_args_));
+                  ref layout__19047 = rt::first(_args_);
+                  ref activations__19048 = rt::first(rt::rest(_args_));
 
-                  return run(FN__20486(),run(m_and(),layout__20149,activations__20150));
+                  return run(FN__19371(),run(m_and(),layout__19047,activations__19048));
                 }
                
 
-                inline var led_on::invoke (ref _args_) const {
+                inline var FN__19373::invoke (ref _args_) const {
                   (void)(_args_);
 
-                  return run(ferret_arduino_digital_write(),obj<number>(10.0),obj<number>(1.0));
-                }
-               
-
-                inline var led_off::invoke (ref _args_) const {
-                  (void)(_args_);
-
-                  return run(ferret_arduino_digital_write(),obj<number>(10.0),obj<number>(0.0));
-                }
-               
-
-                inline var FN__20490::invoke (ref _args_) const {
-                  (void)(_args_);
-
-                  ::pinMode(number::to<int>(G__20153) , OUTPUT);;
+                  ::pinMode(number::to<int>(G__19054) , OUTPUT);;
                   return nil();
                 }
                
 
-                inline var FN__20491::invoke (ref _args_) const {
+                inline var FN__19374::invoke (ref _args_) const {
                   (void)(_args_);
 
-                  (G__20153 = obj<number>(10.0));
-                  return run(FN__20490());
+                  (G__19054 = col__19053);
+                  return run(FN__19373());
                 }
                
 
-                inline var FN__20492::invoke (ref _args_) const {
+                inline var FN__19375::invoke (ref _args_) const {
                   (void)(_args_);
 
-                  ::pinMode(number::to<int>(G__20154) , INPUT);;
+                  run(FN__19374(col__19053));
+                  return run(ferret_arduino_digital_write(),col__19053,obj<number>(0.0));
+                }
+               
+
+                inline var FN__19376::invoke (ref _args_) const {
+                  (void)(_args_);
+                  ref col__19053 = rt::first(_args_);
+
+                  return run(FN__19375(col__19053));
+                }
+               
+
+                inline var FN__19377::invoke (ref _args_) const {
+                  (void)(_args_);
+
+                  ::pinMode(number::to<int>(G__19056) , INPUT_PULLDOWN);;
                   return nil();
                 }
                
 
-                inline var FN__20493::invoke (ref _args_) const {
+                inline var FN__19378::invoke (ref _args_) const {
                   (void)(_args_);
 
-                  (G__20154 = obj<number>(11.0));
-                  return run(FN__20492());
+                  (G__19056 = row__19055);
+                  return run(FN__19377());
                 }
                
 
-                inline var FN__20494::invoke (ref _args_) const {
+                inline var FN__19379::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref x__20157 = rt::first(_args_);
+                  ref row__19055 = rt::first(_args_);
 
-                  return run(pos_QMARK_(),x__20157);
+                  return run(FN__19378(row__19055));
                 }
                
 
-                inline var FN__20495::invoke (ref _args_) const {
+                inline var FN__19380::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref x__20159 = rt::first(_args_);
 
-                  return run(_not_(),run(pos_QMARK_(),x__20159));
+                  run(_doseq_(),cols__19052,obj<FN__19376>());
+                  return run(_doseq_(),rows__19051,obj<FN__19379>());
                 }
                
 
-                inline var FN__20496::invoke (ref _args_) const {
+                inline var setup::invoke (ref _args_) const {
                   (void)(_args_);
-                  ref G__20155__20156 = rt::first(_args_);
+                  ref rows__19051 = rt::first(_args_);
+                  ref cols__19052 = rt::first(rt::rest(_args_));
 
-                  return (run(_eq_(),obj<led_off>(),G__20155__20156) ? (run(FN__20494()) ? led_on : nil()) : (run(_eq_(),obj<led_on>(),G__20155__20156) ? (run(FN__20495()) ? led_off : nil()) : nil()));
+                  return run(FN__19380(rows__19051,cols__19052));
                 }
                
 
-                inline var FN__20497::invoke (ref _args_) const {
+                inline var FN__19382::invoke (ref _args_) const {
                   (void)(_args_);
 
-                  run(FN__20491());
-                  run(FN__20493());
-                  return run(new_fsm(),obj<led_off>(),obj<FN__20496>());
+                  return cached::true_o;
+                }
+               
+
+                inline var FN__19383::invoke (ref _args_) const {
+                  (void)(_args_);
+
+                  return run(apply_layout(),deps_keyboard_layout,run(read_matrix(),rows,cols));
+                }
+               
+
+                inline var FN__19384::invoke (ref _args_) const {
+                  (void)(_args_);
+
+                  run(setup(),rows,cols);
+                  return run(_while_(),obj<FN__19382>(),obj<FN__19383>());
                 }
                
         }
@@ -3814,7 +3679,7 @@
           (deps_keyboard_layout = obj<matrix_t>(size_t(4), size_t(12),real_t(-1),number::to<real_t>(obj<number>(113)),number::to<real_t>(obj<number>(119)),number::to<real_t>(obj<number>(101)),number::to<real_t>(obj<number>(114)),number::to<real_t>(obj<number>(116)),number::to<real_t>(obj<number>(121)),number::to<real_t>(obj<number>(117)),number::to<real_t>(obj<number>(105)),number::to<real_t>(obj<number>(111)),number::to<real_t>(obj<number>(112)),real_t(-1),real_t(-1),number::to<real_t>(obj<number>(97)),number::to<real_t>(obj<number>(115)),number::to<real_t>(obj<number>(100)),number::to<real_t>(obj<number>(102)),number::to<real_t>(obj<number>(103)),number::to<real_t>(obj<number>(104)),number::to<real_t>(obj<number>(106)),number::to<real_t>(obj<number>(107)),number::to<real_t>(obj<number>(108)),number::to<real_t>(obj<number>(59)),real_t(-1),real_t(-1),number::to<real_t>(obj<number>(122)),number::to<real_t>(obj<number>(120)),number::to<real_t>(obj<number>(99)),number::to<real_t>(obj<number>(118)),number::to<real_t>(obj<number>(98)),number::to<real_t>(obj<number>(110)),number::to<real_t>(obj<number>(109)),number::to<real_t>(obj<number>(60)),number::to<real_t>(obj<number>(62)),number::to<real_t>(obj<number>(47)),real_t(-1),real_t(-1),real_t(-1),real_t(-1),real_t(-1),real_t(-1),real_t(-1),real_t(-1),real_t(-1),real_t(-1),real_t(-1),real_t(-1),real_t(-1)));
           (cols = rt::list(obj<number>(10.0),obj<number>(11.0),obj<number>(12.0),obj<number>(15.0),obj<number>(16.0),obj<number>(17.0),obj<number>(18.0),obj<number>(19.0),obj<number>(20.0),obj<number>(21.0),obj<number>(22.0),obj<number>(23.0)));
           (rows = rt::list(obj<number>(6.0),obj<number>(7.0),obj<number>(8.0),obj<number>(9.0)));
-          run(FN__20497()); 
+          run(FN__19384()); 
          }
         }
 

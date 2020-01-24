@@ -18,15 +18,6 @@
 (defn arduino-write-byte [^byte b]
   "__result = obj<number>(Serial.print((char)b));")
 
-(defn setup [rows cols]
-  (do
-    (doseq [col cols]
-      (do
-        (gpio/pin-mode col :output)
-        (gpio/digital-write col 0)))
-    (doseq [row rows]
-      (gpio/pin-mode row :input_pulldown))))
-
 (defn read-matrix [rows cols]
   (let [activations (m/zeros (count rows) (count cols))]
     (doseq [[j col] (enumerate cols)]
@@ -44,18 +35,17 @@
         (let [keypress (m/mget result i j)]
           (if (pos? keypress) (arduino-write-byte keypress)))))))
 
-;; (do
-;;   (setup rows cols)
-;;   (forever
-;;    (->> (read-matrix rows cols)
-;;         (apply-layout keyboard/layout))))
-
-(defn led-on [] (gpio/digital-write 10 1))
-(defn led-off [] (gpio/digital-write 10 0))
+(defn setup [rows cols]
+  (do
+    (doseq [col cols]
+      (do
+        (gpio/pin-mode col :output)
+        (gpio/digital-write col 0)))
+    (doseq [row rows]
+      (gpio/pin-mode row :input_pulldown))))
 
 (do
-  (gpio/pin-mode 10 :output)
-  (gpio/pin-mode 11 :input)
-  (fsm
-   (led-off (fn [x (gpio/digital-read 11)] (pos? x)) led-on)
-   (led-on (fn [x (gpio/digital-read 11)] (not (pos? x))) led-off)))
+  (setup rows cols)
+  (forever
+   (->> (read-matrix rows cols)
+        (apply-layout keyboard/layout))))
