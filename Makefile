@@ -2,7 +2,7 @@ FERRET = ../ferret
 ORGFILE = core.org
 INPUT  = src/core.clj
 OUTPUT = src/core.cpp
-RM = rm -rd
+RM = rm -rdf
 
 .PHONY: build upload clean
 
@@ -39,6 +39,6 @@ upload: $(OUTPUT)
 
 clean:
 	@echo [clean]
+	platformio run --target clean
 	$(RM) src
 	$(RM) platformio.ini
-	platformio run --target clean
