@@ -14,11 +14,11 @@ We wrap the keyboard print with the ferret cpp FFI.
 * Layout
 The layout itself is stored in the keyboard dependency file right now. This may change to a more global configuration file.
 #+begin_src clojure :tangle deps/keyboard.clj
-  (def layout
-    (list (list -1 \q \w \e \r \t \y \u \i \o \p -1)
-          (list -1 \a \s \d \f \g \h \j \k \l \; -1)
-          (list -1 \z \x \c \v \b \n \m \< \> \/ -1)
-          (list -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1)))
+(def layout
+  (list (list -1 \q \w \e \r \t \y \u \i \o \p -1)
+        (list -1 \a \s \d \f \g \h \j \k \l \; -1)
+        (list -1 \z \x \c \v \b \n \m \< \> \/ -1)
+        (list -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1)))
 #+end_src
 
 I am going to need to do something about the layers, but I think they will be defined in a similar way
@@ -27,8 +27,8 @@ I am going to need to do something about the layers, but I think they will be de
 
 We start with the ferret includes for arduino to get the GPIO interaction and the keyboard dep file we created before.
 #+begin_src clojure :tangle core.clj
-  (require '[ferret.arduino :as gpio]
-           '[deps.keyboard :as keyboard])
+(require '[ferret.arduino :as gpio]
+          '[deps.keyboard :as keyboard])
 #+end_src
 
 I put the defenitions of the rows and column pins here, but they might need to be moved to some global configuration file
@@ -41,18 +41,11 @@ I put the defenitions of the rows and column pins here, but they might need to b
 *** apply-mask and list-and
 This function takes two matricies and returns the logical "and" of the two. The first argument is the matrix to be masked and the second is the masking matrix. For some reason bools didn't work, so the checks for the mask are done with pos?.
 #+begin_src clojure :tangle core.clj
-  (defn list-and [target mask]
-    (map (fn [t m] (if (pos? m) t 0)) target mask))
+(defn list-and [target mask]
+  (map (fn [t m] (if (pos? m) t 0)) target mask))
 
-  (defn apply-mask [target mask]
-    (map list-and target mask))
-#+end_src
-
-*** Enumerate
-This takes a list and returns a list of lists with each item being the position in the source list and the value in the source at that position.
-#+begin_src clojure :tangle core.clj
-(defn enumerate [in]
-  (map list (range (count in)) in))
+(defn apply-mask [target mask]
+  (map list-and target mask))
 #+end_src
 
 *** arduino-write-byte
@@ -65,22 +58,22 @@ As there wasn't a nice way to write a raw byte over serial.
 *** read-matrix
 This function reads the entire keyboard matrix and returns a "mask" matrix of 1s and 0s for every position pressed within the last scan
 #+begin_src clojure :tangle core.clj
-  (defn read-matrix [rows cols]
-    (doseq [[j col] (enumerate cols)]
-            (gpio/digital-write col 1)
-            (let [inner (doseq [[i row]]
-                          (if (pos? (gpio/digital-read row)) 1 0))]
-              (gpio/digital-write col 0)
-              inner)))
+(defn read-matrix [rows cols]
+  (comprehension [col cols]
+    (do (gpio/digital-write col 1)
+        (let [inner (comprehension [row rows]
+                                   (if (pos? (gpio/digital-read row)) 1 0))]
+          (do (gpio/digital-write col 0)
+              inner)))))
 #+end_src
 
 *** apply-layout
 This function takes a layout matrix and the activation matrix (i.e. the result from a scan) and does something with the result. Right now, it prints the keypress to the console.
 #+begin_src clojure :tangle core.clj
-  (defn apply-layout [layout activations]
-    (let [result (flatten (apply-mask layout activations))]
-      (doseq [keypress result]
-        (if (pos? keypress) (arduino-write-byte keypress)))))
+(defn apply-layout [layout activations]
+  (let [result (flatten (apply-mask layout activations))]
+    (doseq [keypress result]
+      (if (pos? keypress) (arduino-write-byte keypress)))))
 #+end_src
 
 ** Setup
@@ -99,9 +92,9 @@ So to begin program execution, we have to set all the columns to outputs and set
 * State Machine
 Simple process right now, we run the setup, and then constantly read the matrix and do the appropriate layout task from apply-layout
 #+begin_src clojure :tangle core.clj
- (do
-   (setup rows cols)
-   (forever
-    (->> (read-matrix rows cols)
-         (apply-layout keyboard/layout))))
+(do
+  (setup rows cols)
+  (forever
+   (->> (read-matrix rows cols)
+        (apply-layout keyboard/layout))))
 #+end_src

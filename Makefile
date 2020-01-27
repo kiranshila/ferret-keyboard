@@ -1,6 +1,6 @@
 FERRET = ../ferret
 INPUT  = src/core.clj
-OUTPUT = src/core.ino
+OUTPUT = src/core.cpp
 RM = rm -f
 
 .PHONY: build upload clean
