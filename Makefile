@@ -1,4 +1,4 @@
-FERRET = ../ferret
+FERRET = ferret
 ORGFILE = core.org
 INPUT  = src/core.clj
 OUTPUT = src/core.cpp

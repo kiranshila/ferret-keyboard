@@ -2,6 +2,18 @@
 #+AUTHOR: Kiran Shila
 #+PROPERTY: header-args :mkdirp yes
 
+* Setup
+To build this project, the following prerequisites must be met:
++ PlatformIO must be installed (Python3), this can be done with simple `pip
+  install platformio`
++ Emacs (>= 25) As this is used for tangling this source file
++ Ferret must be installed. You can find the instructions at
+  [[https://ferret-lang.org/]]
+
+* Building
+To build the project, run `make` or `make build`. To upload to the hardware run
+`make upload`.
+        
 * Platform-IO Configuration
 To simplify to building task for different arduino-compatible platforms, I am
 using Platform-IO to simplify downloading the toolchains, linking, and what have
