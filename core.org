@@ -2,6 +2,23 @@
 #+AUTHOR: Kiran Shila
 #+PROPERTY: header-args :mkdirp yes
 
+* Platform-IO Configuration
+To simplify to building task for different arduino-compatible platforms, I am
+using Platform-IO to simplify downloading the toolchains, linking, and what have
+you. To do this, I create a configuration file for platformio that controls the
+target board and environment.
+
+#+begin_src conf :tangle platformio.ini
+[env:default]
+# Using teensy for now
+platform = teensy
+board = teensy31
+framework = arduino
+# I'm turning on the top optimization
+build_flags = -O3
+build_unflags = -Os -O2
+#+end_src
+
 * Keyboard Library
 I am outsourcing the interactions with the keyboard (HID Table) to a seperate file, because then I get the `keyboard` namespace. Some of the commands from the keyboard library from the teensy have conflicting names with ferret builtins.
 

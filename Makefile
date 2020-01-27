@@ -40,4 +40,5 @@ upload: $(OUTPUT)
 clean:
 	@echo [clean]
 	$(RM) src
+	$(RM) platformio.ini
 	platformio run --target clean
