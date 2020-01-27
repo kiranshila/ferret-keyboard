@@ -1,6 +1,6 @@
 #+TITLE:Mechanical Keyboard Firmware
 #+AUTHOR: Kiran Shila
-#+BABEL: :session *clojure* :cache yes :results output graphics :exports both :tangle yes
+#+PROPERTY: header-args :mkdirp yes
 
 * Keyboard Library
 I am outsourcing the interactions with the keyboard (HID Table) to a seperate file, because then I get the `keyboard` namespace. Some of the commands from the keyboard library from the teensy have conflicting names with ferret builtins.
