@@ -1,0 +1,100 @@
+#+TITLE:Mechanical Keyboard Firmware
+#+AUTHOR: Kiran Shila
+#+PROPERTY: header-args :mkdirp yes
+
+* Keyboard Library
+I am outsourcing the interactions with the keyboard (HID Table) to a seperate file, because then I get the `keyboard` namespace. Some of the commands from the keyboard library from the teensy have conflicting names with ferret builtins.
+
+We wrap the keyboard print with the ferret cpp FFI.
+#+begin_src clojure :tangle src/deps/keyboard.clj
+(defn print [^c_str s]
+  "__result = obj<number>(Keyboard.print(s));")
+#+end_src
+
+* Layout
+The layout itself is stored in the keyboard dependency file right now. This may change to a more global configuration file.
+#+begin_src clojure :tangle src/deps/keyboard.clj
+(def layout
+  (list (list -1 \q \w \e \r \t \y \u \i \o \p -1)
+        (list -1 \a \s \d \f \g \h \j \k \l \; -1)
+        (list -1 \z \x \c \v \b \n \m \< \> \/ -1)
+        (list -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1)))
+#+end_src
+
+I am going to need to do something about the layers, but I think they will be defined in a similar way
+
+* Core Logic
+
+We start with the ferret includes for arduino to get the GPIO interaction and the keyboard dep file we created before.
+#+begin_src clojure :tangle src/core.clj
+(require '[ferret.arduino :as gpio]
+          '[deps.keyboard :as keyboard])
+#+end_src
+
+I put the defenitions of the rows and column pins here, but they might need to be moved to some global configuration file
+#+begin_src clojure :tangle src/core.clj
+(def cols (list 10 11 12 15 16 17 18 19 20 21 22 23)) ;outputs
+(def rows (list 6 7 8 9)) ;inputs
+#+end_src
+
+** Utility Functions
+*** apply-mask and list-and
+This function takes two matricies and returns the logical "and" of the two. The first argument is the matrix to be masked and the second is the masking matrix. For some reason bools didn't work, so the checks for the mask are done with pos?.
+#+begin_src clojure :tangle src/core.clj
+(defn list-and [target mask]
+  (map (fn [t m] (if (pos? m) t 0)) target mask))
+
+(defn apply-mask [target mask]
+  (map list-and target mask))
+#+end_src
+
+*** arduino-write-byte
+As there wasn't a nice way to write a raw byte over serial.
+#+begin_src clojure :tangle src/core.clj
+(defn arduino-write-byte [^byte b]
+  "__result = obj<number>(Serial.print((char)b));")
+#+end_src
+
+*** read-matrix
+This function reads the entire keyboard matrix and returns a "mask" matrix of 1s and 0s for every position pressed within the last scan
+#+begin_src clojure :tangle src/core.clj
+(defn read-matrix [rows cols]
+  (comprehension [col cols]
+    (do (gpio/digital-write col 1)
+        (let [inner (comprehension [row rows]
+                                   (if (pos? (gpio/digital-read row)) 1 0))]
+          (do (gpio/digital-write col 0)
+              inner)))))
+#+end_src
+
+*** apply-layout
+This function takes a layout matrix and the activation matrix (i.e. the result from a scan) and does something with the result. Right now, it prints the keypress to the console.
+#+begin_src clojure :tangle src/core.clj
+(defn apply-layout [layout activations]
+  (let [result (flatten (apply-mask layout activations))]
+    (doseq [keypress result]
+      (if (pos? keypress) (arduino-write-byte keypress)))))
+#+end_src
+
+** Setup
+So to begin program execution, we have to set all the columns to outputs and set the rows to inputs with pull-downs. Additionally, I set all the outputs to 0 just to make sure we start from a blank state.
+#+begin_src clojure :tangle src/core.clj
+(defn setup [rows cols]
+  (do
+    (doseq [col cols]
+      (do
+        (gpio/pin-mode col :output)
+        (gpio/digital-write col 0)))
+    (doseq [row rows]
+      (gpio/pin-mode row :input_pulldown))))
+#+end_src
+
+* State Machine
+Simple process right now, we run the setup, and then constantly read the matrix and do the appropriate layout task from apply-layout
+#+begin_src clojure :tangle src/core.clj
+(do
+  (setup rows cols)
+  (forever
+   (->> (read-matrix rows cols)
+        (apply-layout keyboard/layout))))
+#+end_src

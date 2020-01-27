@@ -1,5 +1,5 @@
 FERRET = ../ferret
-ORGFILE = src/core.org
+ORGFILE = core.org
 INPUT  = src/core.clj
 OUTPUT = src/core.cpp
 RM = rm -rd
@@ -39,7 +39,5 @@ upload: $(OUTPUT)
 
 clean:
 	@echo [clean]
-	$(RM) $(OUTPUT)
-	$(RM) $(INPUT)
-	$(RM) src/deps
+	$(RM) src
 	platformio run --target clean

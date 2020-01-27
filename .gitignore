@@ -1,6 +1,4 @@
 .pio
 .DS_Store
-src/core.clj
-src/core.cpp
-src/deps
+src
 .vscode
